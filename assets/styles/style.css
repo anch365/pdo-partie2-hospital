@@ -17,6 +17,8 @@
     --font-weight-bold: 700;
     --leading-relaxed: 1.625;
     --radius-xl: 0.75rem;
+    --radius-3xl: 1.5rem;
+    --radius-4xl: 2rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -173,9 +175,6 @@
   .fixed {
     position: fixed;
   }
-  .relative {
-    position: relative;
-  }
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
@@ -199,12 +198,6 @@
   }
   .left-0 {
     left: calc(var(--spacing) * 0);
-  }
-  .left-4 {
-    left: calc(var(--spacing) * 4);
-  }
-  .left-40 {
-    left: calc(var(--spacing) * 40);
   }
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
@@ -230,9 +223,6 @@
   .w-2\/3 {
     width: calc(2 / 3 * 100%);
   }
-  .w-full {
-    width: 100%;
-  }
   .border-collapse {
     border-collapse: collapse;
   }
@@ -248,17 +238,11 @@
   .items-center {
     align-items: center;
   }
-  .items-start {
-    align-items: flex-start;
-  }
   .justify-between {
     justify-content: space-between;
   }
   .justify-center {
     justify-content: center;
-  }
-  .gap-4 {
-    gap: calc(var(--spacing) * 4);
   }
   .gap-6 {
     gap: calc(var(--spacing) * 6);
@@ -269,6 +253,12 @@
   .gap-16 {
     gap: calc(var(--spacing) * 16);
   }
+  .rounded-3xl {
+    border-radius: var(--radius-3xl);
+  }
+  .rounded-4xl {
+    border-radius: var(--radius-4xl);
+  }
   .rounded-full {
     border-radius: calc(infinity * 1px);
   }
@@ -278,6 +268,14 @@
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
+  }
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
+  .border-solid {
+    --tw-border-style: solid;
+    border-style: solid;
   }
   .bg-black {
     background-color: var(--color-black);
@@ -296,15 +294,6 @@
   }
   .pb-4 {
     padding-bottom: calc(var(--spacing) * 4);
-  }
-  .pb-8 {
-    padding-bottom: calc(var(--spacing) * 8);
-  }
-  .pb-12 {
-    padding-bottom: calc(var(--spacing) * 12);
-  }
-  .pb-16 {
-    padding-bottom: calc(var(--spacing) * 16);
   }
   .text-center {
     text-align: center;
@@ -363,6 +352,9 @@
 }
 .bg-bleue {
   background-color: #01A7C2;
+}
+.bg-bleue-bouton {
+  background-color: #82e6fff2;
 }
 .text-ysabeau {
   font-family: "Ysabeau", sans-serif;

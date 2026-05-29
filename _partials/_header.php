@@ -17,7 +17,7 @@
 
 </head>
 
-<body class="flex flex-col gap-16 pt-32 px-8 text-ysabeau text-center ">
+<body class="flex flex-col gap-16 pt-32 px-8 text-ysabeau">
 
     <header class="flex flex-row fixed top-0 right-0 left-0 bg-bleue text-white justify-between px-8">
 
