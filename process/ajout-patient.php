@@ -8,31 +8,57 @@ if ($_SERVER['REQUEST_METHOD'] !== "POST") {
 }
 
 // Deuxieme étape de sécurité : verifier que la colonne voulue existe bien
-if (!isset($_POST["nom"]) || !isset($_POST["prenom"]) || !isset($_POST["dateNaissance"]) || !isset($_POST["telephone"]) || !isset($_POST["email"])) {
+if (!isset($_POST["lastname"]) || !isset($_POST["firstname"]) || !isset($_POST["birthdate"]) || !isset($_POST["phone"]) || !isset($_POST["mail"])) {
   header("Location: ../process/ajout-patient.php?error=bad-method");
   exit();
 }
 
 // Troisième étape de sécurité : verifier que la colonne voulue n'est pas vide
-if (empty($_POST["nom"]) || empty($_POST["prenom"]) || empty($_POST["dateNaissance"]) || empty($_POST["telephone"]) || empty($_POST["email"])) {
+if (empty($_POST["lastname"]) || empty($_POST["firstname"]) || empty($_POST["birthdate"]) || empty($_POST["phone"]) || empty($_POST["mail"])) {
   header("Location: ../process/ajout-patient.php?error=bad-method");
   exit();
 }
 
+// POUR LA SECURITE DES DATES
+$dateNaissance = trim($_POST["birthdate"]);
+
+$date = DateTime::createFromFormat('Y-m-d', $dateNaissance);
+
+if (!$date || $date->format('Y-m-d') !== $dateNaissance) {
+    header("Location: ../process/ajout-patient.php?error=invalid-date");
+    exit();
+}
+
+// Pour empêcher une date de naissance dans le futur
+$date = DateTime::createFromFormat('Y-m-d', $dateNaissance);
+$today = new DateTime();
+
+if ($date > $today) {
+    header("Location: ../process/ajout-patient.php?error=future-date");
+    exit();
+}
+
 // Quatrième étape de sécurité : on empêche l'utilisation de balise (par exemple script)
-$nom = htmlspecialchars(strip_tags(trim($_POST["nom"])));
-$prenom = htmlspecialchars(strip_tags(trim($_POST["prenom"])));
-$dateNaissance = (int)$_POST["dateNaissance"];
-$telephone = htmlspecialchars(strip_tags(trim($_POST["telephone"])));
-$email = htmlspecialchars(strip_tags(trim($_POST["email"])));
+$nom = htmlspecialchars(strip_tags(trim($_POST["lastname"])));
+$prenom = htmlspecialchars(strip_tags(trim($_POST["firstname"])));
+
+// Pour la date, c'est en haut de la sécurité
+
+$telephone = htmlspecialchars(strip_tags(trim($_POST["phone"])));
+$email = htmlspecialchars(strip_tags(trim($_POST["mail"])));
 
 
-// ETAPE 2 : METTRE LES DONNEE DU PATIENT EN BDD
+// ETAPE 2 : METTRE LES DONNEE DU PATIENT EN BDD (PDO traduit php pour pouvoir communiquer avec la BDD)
 require_once "../utils/db_connect.php";
 
-$request = $db->prepare("INSERT INTO patient
-(nom, prenom, dateNaissance, telephone, email)
-VALUES(?,?,?,?,?)");
+
+// La requête entière est du PDO :
+// prepare() sert à préparer une requête SQL
+// execute() sert à exécuter la requête préparée
+// Entre parenthèse c'est du SQL
+$request = $db->prepare("INSERT INTO hospitale2n.patients
+(lastname, firstname, birthdate, phone, mail)
+VALUES( ?, ?, ?, ?, ?)");
 
 $request->execute([
     $nom,
@@ -48,30 +74,3 @@ exit();
 
 ?>
 
-    <form action="../process/ajout-patient.php" method="POST" class="flex flex-col gap-8">
-        <div>
-            <select name="genre" id="genre" class="border-2 border-solid rounded-4xl">
-                <option value="Valeur">Genre</option>
-                <option value="Mr">Mr</option>
-                <option value="Mme">Mme</option>
-            </select><br> <br>
-        </div>
-        <div>
-            <label for="prenom" class="font-bold">Nom :</label>
-            <input type="text" placeholder="Ex: Théo" id="nom" name="nom" minlength="3" maxlength="50" required class="border-solid border-2 rounded-xl">
-        </div>
-        <div>
-            <label for="nom" class="font-bold">Prénom :</label>
-            <input type="text" placeholder="Ex: Michel" id="prenom" name="prenom" minlength="3" maxlength="50" required class="border-solid border-2 rounded-xl">
-        </div>
-        <div>
-            <label for="prenom" class="font-bold">Âge :</label>
-            <input type="number" placeholder="Ex: 40" id="age" name="age" minlength="1" maxlength="3" required class="border-solid border-2 rounded-xl">
-        </div>
-        <div>
-            <label for="prenom" class="font-bold">Téléphone :</label>
-            <input type="tel" placeholder="Ex: 0640132412" id="telephone" name="telephone" minlength="2" maxlength="10" required class="border-solid border-2 rounded-xl">
-        </div>
-
-        <button type="submit" class="border-solid border rounded-xl bg-bleue-bouton">Ajouter le client</button>
-    </form>
