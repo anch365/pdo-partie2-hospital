@@ -24,11 +24,11 @@
         <img src="../assets/imgs/logo-hôpital.png" alt="Logo hôpital du header" class="flex flex-row h-12 mt-2 rounded-full xl:mt-0 xl:items-center">
 
         <!-- MENU burger -->
-        <img id="menuburger" src="../assets/imgs/menu-burger.svg" alt="Menu burger pour les options" class="h-16 xl:hidden">
+        <img id="menuburger" src="../assets/imgs/menu-burger.svg" alt="Menu burger pour les options" class="h-16 lg:hidden">
 
         <div
             id="fond-sombre"
-            class="fixed top-0 right-0 left-0 bottom-0 bg-black/30 hidden xl:hidden">
+            class="fixed top-0 right-0 left-0 bottom-0 bg-black/30 hidden lg:hidden">
         </div>
 
         <div
@@ -37,13 +37,13 @@
 
             <a href="./index.php">Accueil</a>
             <a href="./ajout-patient.php">Ajouter un patient</a>
-            <a href="#">Contact </a>
+            <a href="./liste-patient.php">Liste des patients</a>
         </div>
 
         <!-- MENU Desktop -->
-        <nav class="hidden xl:flex xl:flex-row gap-16 items-center">
+        <nav class="hidden lg:flex lg:flex-row gap-16 items-center">
             <a href="./index.php">Accueil</a>
             <a href="./ajout-patient.php">Ajouter un patient</a>
-            <a href="#">Contact </a>
+            <a href="./profil-patient.php">Liste des patients</a>
         </nav>
     </header>

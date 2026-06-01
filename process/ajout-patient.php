@@ -58,7 +58,7 @@ require_once "../utils/db_connect.php";
 // Entre parenthèse c'est du SQL
 $request = $db->prepare("INSERT INTO hospitale2n.patients
 (lastname, firstname, birthdate, phone, mail)
-VALUES( ?, ?, ?, ?, ?)");
+VALUES( ?, ?, ?, ?, ?, ?)");
 
 $request->execute([
     $nom,

@@ -1,5 +1,5 @@
 <?php
-// RECUPERER EN BDD LA LISTE DE TOUS LES PATIENT
+// RECUPERER EN BDD LA LISTE DE TOUS LES PATIENTS
 require_once '../utils/db_connect.php';
 
 $request = $db->query("SELECT * FROM patients");
@@ -15,6 +15,7 @@ $patients = $request->fetchAll(PDO::FETCH_ASSOC);
     <!-- POURQUOI PAS, DANS LE FUTUR, AJOUTER UN CHAMP DE RECHERCHE POUR TROUVER FACILEMENT UN PATIENT DANS LA LISTE -->
 
     <!-- AFFICHER LA LISTE DES PATIENTS -->
+
     <div class="w-full overflow-x-auto">
         <table class="border border-black border-collapse w-full">
             <thead>
@@ -24,6 +25,7 @@ $patients = $request->fetchAll(PDO::FETCH_ASSOC);
                     <th class="border border-black p-2">Date de naissance</th>
                     <th class="border border-black p-2">N° téléphone</th>
                     <th class="border border-black p-2">Email</th>
+                    <th class="border border-black p-2">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,10 +36,13 @@ $patients = $request->fetchAll(PDO::FETCH_ASSOC);
                         <td class="border border-black p-2"><?= $patient['birthdate'] ?></td>
                         <td class="border border-black p-2"><?= $patient['phone'] ?></td>
                         <td class="border border-black p-2"><?= $patient['mail'] ?></td>
+                        <td class="border border-black p-2">
+                           <a href="./profil-patient.php?id=<?= $patient['id']?>"><img src="../assets/imgs/recherche.svg" alt="Pour voir toutes les informationd d'un patient"></a>
+                        </td>
+
                     </tr>
                 <?php } ?>
             </tbody>
-
         </table>
     </div>
 
