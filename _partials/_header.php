@@ -13,6 +13,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ysabeau:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
+    <!-- Icône sur Font awesome -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <script src="../assets/scripts/main.js" defer></script>
 
 </head>
@@ -44,6 +47,6 @@
         <nav class="hidden lg:flex lg:flex-row gap-16 items-center">
             <a href="./index.php">Accueil</a>
             <a href="./ajout-patient.php">Ajouter un patient</a>
-            <a href="./profil-patient.php">Liste des patients</a>
+            <a href="./liste-patient.php">Liste des patients</a>
         </nav>
     </header>
