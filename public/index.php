@@ -4,6 +4,8 @@
 <p>Toutes vos coordonnées sont <strong>sécurisées</strong>. <br>N'ayez aucune crainte pour vous faire consulter, on propose les meilleures consultations de la ville</p>
 <button class="border-2 rounded-full bg-bleue-bouton"><a href="./ajout-patient.php">Créer un client</a></button>
 
+<button class="border-2 rounded-full bg-bleue-bouton"><a href="./ajout-rendezvous.php"></a></button>
+
 <div class="flex flex-col gap-16 text-5xl">
     <article>
         <h2>Une accueil de qualité</h2>
