@@ -2,9 +2,9 @@
 
 <h1 class="text1-ysabeau text-4xl/relaxed text-center font-bold">Bienvenue sur l'application Hospital</h1>
 <p>Toutes vos coordonnées sont <strong>sécurisées</strong>. <br>N'ayez aucune crainte pour vous faire consulter, on propose les meilleures consultations de la ville</p>
-<button class="border-2 rounded-full bg-bleue-bouton"><a href="./ajout-patient.php">Créer un client</a></button>
+<button class="rounded-full bg-bleue-bouton px-16 text-2xl" type="submit"><a href="./ajout-patient.php">Créer un client</a></button>
 
-<button class="border-2 rounded-full bg-bleue-bouton"><a href="./ajout-rendezvous.php"></a></button>
+<button class="rounded-full bg-bleue-bouton px-16 text-2xl" type="submit"><a href="./ajout-rendezvous.php">Prendre rendez-vous</a></button>
 
 <div class="flex flex-col gap-16 text-5xl">
     <article>

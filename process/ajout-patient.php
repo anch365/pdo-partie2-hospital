@@ -9,13 +9,13 @@ if ($_SERVER['REQUEST_METHOD'] !== "POST") {
 
 // Deuxieme étape de sécurité : verifier que la colonne voulue existe bien
 if (!isset($_POST["lastname"]) || !isset($_POST["firstname"]) || !isset($_POST["birthdate"]) || !isset($_POST["phone"]) || !isset($_POST["mail"])) {
-  header("Location: ../process/ajout-patient.php?error=bad-method");
+  header("Location: ../process/ajout-patient.php?error=missing-value");
   exit();
 }
 
 // Troisième étape de sécurité : verifier que la colonne voulue n'est pas vide
 if (empty($_POST["lastname"]) || empty($_POST["firstname"]) || empty($_POST["birthdate"]) || empty($_POST["phone"]) || empty($_POST["mail"])) {
-  header("Location: ../process/ajout-patient.php?error=bad-method");
+  header("Location: ../process/ajout-patient.php?error=empty-value");
   exit();
 }
 

@@ -32,7 +32,7 @@
             <input type="email" placeholder=" Ex: test_test@test.test" id="mail" name="mail" minlength="3" maxlength="50" required class="border-solid border-2 rounded-xl">
         </div>
 
-        <button type="submit" class="border-solid border rounded-xl bg-bleue-bouton">Ajouter le client</button>
+        <button type="submit" class="rounded-xl bg-bleue-bouton px-16 text-2xl">Ajouter le client</button>
     </form>
 </main>
 

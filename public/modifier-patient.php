@@ -35,7 +35,7 @@ $patient = $request->fetch(PDO::FETCH_ASSOC);
         <input type="hidden" name="id" value="<?= $patient['id'] ?>">
     </div>
 
-    <button class="border-2 rounded-full bg-bleue-bouton" type="submit">
+    <button class="rounded-full bg-bleue-bouton px-16 text-2xl" type="submit">
         Enregistrer
     </button>
 </form>

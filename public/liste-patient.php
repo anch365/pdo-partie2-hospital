@@ -39,11 +39,11 @@ $patients = $request->fetchAll(PDO::FETCH_ASSOC);
 
                         <td class="p-2">
                             <div class="flex flex-row gap-8">
-                                
+
                                 <a href="./profil-patient.php?id=<?= $patient['id'] ?>">
                                     <i class="fa-solid fa-eye"></i>
                                 </a>
-                                <a href="./modifier-patient.php?id=<?= $patient['id']?>">
+                                <a href="./modifier-patient.php?id=<?= $patient['id'] ?>">
                                     <i class="fa-solid fa-pen"></i>
                                 </a>
                                 <a href="">
@@ -58,7 +58,7 @@ $patients = $request->fetchAll(PDO::FETCH_ASSOC);
         </table>
     </div>
 
-    <button class="border-2 rounded-full bg-bleue-bouton px-8" type="submit"><a href="./ajout-patient.php">Créer un client</a></button>
+    <button class="rounded-full bg-bleue-bouton px-16 text-2xl" type="submit"><a href="./ajout-patient.php">Créer un client</a></button>
 </main>
 
 <?php require_once "../_partials/_footer.php" ?>
