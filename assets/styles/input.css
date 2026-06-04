@@ -15,5 +15,6 @@ background-color: #82e6fff2;
 
 .text1-ysabeau {
   font-family: "Ysabeau SC", sans-serif;
-  font-optical-sizing: auto;
+  font-size: 1.5em;
+  font-weight: bold;
 }

@@ -33,6 +33,7 @@
         </div>
 
         <button type="submit" class="rounded-xl bg-bleue-bouton px-16 text-2xl">Ajouter le client</button>
+        <button type="submit" class="rounded-xl bg-bleue-bouton px-16 text-2xl"></button>
     </form>
 </main>
 

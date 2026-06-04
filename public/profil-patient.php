@@ -22,7 +22,7 @@ $patient = $request->fetch(PDO::FETCH_ASSOC);
         </div>
     <?php } ?>
 
-    <h1 class="text-ysabeau ">Le profil du patient</h1>
+    <h1 class="text1-ysabeau">Le profil du patient</h1>
 
     <p><strong>Nom : </strong><?= $patient['lastname'] ?></p>
     <p><strong>Prénom : </strong><?= $patient['firstname'] ?></p>

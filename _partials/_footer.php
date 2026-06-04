@@ -1,4 +1,4 @@
-<footer class="flex flex-col gap-6 pb-4 justify-center items-center">
+<footer class="flex flex-col gap-6 justify-center items-center">
     <div class="flex flex-row gap-8">
         <img src="../assets/imgs/mail.svg" alt="Logo de contact par mail" class="items-center">
         <p>Contactez nous par mail</p>

@@ -11,7 +11,7 @@ $patients = $request->fetchAll(PDO::FETCH_ASSOC);
 <?php require_once "../_partials/_header.php"; ?>
 
 <main class="flex flex-col gap-8 justify-center items-center">
-    <h1>Liste des patients</h1>
+    <h1 class="text1-ysabeau">Liste des patients</h1>
     <!-- POURQUOI PAS, DANS LE FUTUR, AJOUTER UN CHAMP DE RECHERCHE POUR TROUVER FACILEMENT UN PATIENT DANS LA LISTE -->
 
     <!-- AFFICHER LA LISTE DES PATIENTS -->
@@ -37,15 +37,19 @@ $patients = $request->fetchAll(PDO::FETCH_ASSOC);
                         <td class="border border-black p-2"><?= $patient['phone'] ?></td>
                         <td class="border border-black p-2"><?= $patient['mail'] ?></td>
 
-                        <td class="p-2">
-                            <div class="flex flex-row gap-8">
+                        <!-- Les icônes d'actions -->
+
+                        <td class="p-2 border border-b-black">
+                            <div class="flex flex-row gap-8 ">
 
                                 <a href="./profil-patient.php?id=<?= $patient['id'] ?>">
                                     <i class="fa-solid fa-eye"></i>
                                 </a>
+
                                 <a href="./modifier-patient.php?id=<?= $patient['id'] ?>">
                                     <i class="fa-solid fa-pen"></i>
                                 </a>
+
                                 <a href="">
                                     <i class="fa-solid fa-trash-can"></i>
                                 </a>
@@ -58,7 +62,13 @@ $patients = $request->fetchAll(PDO::FETCH_ASSOC);
         </table>
     </div>
 
-    <button class="rounded-full bg-bleue-bouton px-16 text-2xl" type="submit"><a href="./ajout-patient.php">Créer un client</a></button>
+    <button class="rounded-full bg-bleue-bouton px-16 text-2xl" type="submit">
+        <a href="./ajout-patient.php">Créer un client</a>
+    </button>
+    <button class="rounded-full bg-bleue-bouton px-16 text-2xl" type="submit">
+        <a href="./ajout-rendezvous.php">Prendre rendez-vous</a>
+    </button>
+
 </main>
 
 <?php require_once "../_partials/_footer.php" ?>

@@ -6,9 +6,9 @@
 
 <button class="rounded-full bg-bleue-bouton px-16 text-2xl" type="submit"><a href="./ajout-rendezvous.php">Prendre rendez-vous</a></button>
 
-<div class="flex flex-col gap-16 text-5xl">
+<div class="flex flex-col gap-16 text1-ysabeau">
     <article>
-        <h2>Une accueil de qualité</h2>
+        <h2>Un accueil de qualité</h2>
         <img src="../assets/imgs/accueil.jpg" alt="L'accueil de l'hôpital">
     </article>
 
