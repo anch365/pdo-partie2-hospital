@@ -18,7 +18,7 @@ $patient = $request->fetch(PDO::FETCH_ASSOC);
 
     <?php if ($success) { ?>
         <div class="w-full bg-green-400/50 border-green-400">
-            <p>Le profil a bien été modifié</p>
+            <p>Le rendez-vous a bien été modifier</p>
         </div>
     <?php } ?>
 
@@ -33,7 +33,8 @@ $patient = $request->fetch(PDO::FETCH_ASSOC);
 <button class="rounded-full bg-bleue-bouton px-16 text-2xl" type="submit">
     <a href="./modifier-patient.php?id=<?= $patient['id'] ?>">Modifier</a>
 </button>
-
-
+<button class="rounded-full bg-bleue-bouton px-16 text-2xl" type="submit">
+    <a href="./liste-patient.php">Liste des patients</a>
+</button>
 
 <?php require_once "../_partials/_footer.php" ?>

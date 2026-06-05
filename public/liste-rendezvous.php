@@ -3,7 +3,7 @@
 require_once '../utils/db_connect.php';
 
 $request = $db->query("SELECT
-    patients.id,
+    appointments.id,
     appointments.appointment_datetime,
     patients.lastname,
     patients.firstname
@@ -49,7 +49,7 @@ $appointments = $request->fetchAll(PDO::FETCH_ASSOC);
                     </td>
                     <!-- Les icônes d'actions -->
                     <td class="p-2 border border-b-black">
-                        <a href="./rendezvous.php?id=<?= $appointment['id'] ?>">
+                        <a href="./profil-rendezvous.php?id=<?= $appointment['id'] ?>">
                             <i class="fa-solid fa-eye"></i>
                         </a>
 

@@ -12,8 +12,9 @@ $patient = $request->fetch(PDO::FETCH_ASSOC);
 <?php require_once "../_partials/_header.php" ?>
 
 <form action="../process/maj-patient.php" method="POST" class="flex flex-col gap-8">
-    <label for="lastname" class="font-bold">Nom :</label>
-    <input type="text" placeholder=" Ex: Théo" id="lastname" name="lastname" minlength="3" maxlength="50" required class="border-solid border-2 rounded-xl" value="<?= $patient['lastname'] ?>">
+    <div>
+        <label for="lastname" class="font-bold">Nom :</label>
+        <input type="text" placeholder=" Ex: Théo" id="lastname" name="lastname" minlength="3" maxlength="50" required class="border-solid border-2 rounded-xl" value="<?= $patient['lastname'] ?>">
     </div>
     <div>
         <label for="firstname" class="font-bold">Prénom : </label>
