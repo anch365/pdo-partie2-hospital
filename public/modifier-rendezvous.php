@@ -31,6 +31,7 @@ require_once '../utils/db_connect.php';
 
 $request = $db->prepare("SELECT
     appointments.id,
+    appointments.patient_id,
     appointments.appointment_datetime,
     patients.lastname,
     patients.firstname
@@ -52,20 +53,31 @@ if (!$appointment) {
     header('Location: ./liste-rendezvous.php');
     exit();
 }
+
+$requestPatients = $db->query("SELECT id, lastname, firstname FROM patients ORDER BY lastname");
+$patients = $requestPatients->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <?php require_once "../_partials/_header.php" ?>
 
 <form action="../process/maj-rendezvous.php" method="POST" class="flex flex-col gap-8">
-        <input type="hidden" name="id" value="<?= $appointment['id'] ?>">
+    <input type="hidden" name="id" value="<?= $appointment['id'] ?>">
 
-    <div>
+    <select name="patient_id" id="patient_id">
+        <?php foreach ($patients as $patient) { ?>
+            <option
+                value="<?= $patient['id'] ?>"
+                <?= $patient['id'] == $appointment['patient_id'] ? 'selected' : '' ?>>
 
-        <label for="patient_id" class="font-bold">Patient :</label>
-        <input type="text" id="patient_id" name="patient_id" minlength="3" maxlength="50" required class="border-solid border-2 rounded-xl" value="<?= $appointment['lastname']. ' ' . $appointment['firstname']?>">
-    </div>
+                <?= $patient['lastname'] ?>
+                <?= $patient['firstname'] ?>
 
+            </option>
 
+        <?php } ?>
+
+    </select>
     <div class="flex flex-col gap-4">
 
         <label for="appointment_datetime" class="font-bold">Date & Heure :</label>

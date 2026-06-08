@@ -68,5 +68,8 @@ if (!$appointment) {
 <button class="rounded-full bg-bleue-bouton px-16 text-2xl" type="submit">
     <a href="./modifier-rendezvous.php?id=<?= $appointment['id'] ?>">Modifier</a>
 </button>
+<button class="rounded-full bg-bleue-bouton px-16 text-2xl" type="submit">
+    <a href="./liste-rendezvous.php"><- Liste des rendez-vous</a>
+</button>
 
 <?php require_once "../_partials/_footer.php" ?>
