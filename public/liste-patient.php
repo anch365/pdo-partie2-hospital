@@ -40,7 +40,7 @@ $patients = $request->fetchAll(PDO::FETCH_ASSOC);
                         <!-- Les icônes d'actions -->
 
                         <td class="p-2 border border-b-black">
-                            <div class="flex flex-row gap-8 ">
+                            <div class="flex flex-row gap-8">
 
                                 <a href="./profil-patient.php?id=<?= $patient['id'] ?>">
                                     <i class="fa-solid fa-eye"></i>
