@@ -10,25 +10,21 @@ $request = $db->prepare("SELECT * FROM patients WHERE id = ?");
 $request->execute([$id]);
 $patient = $request->fetch(PDO::FETCH_ASSOC);
 
-$sql = "
-SELECT *
+$request = $db->prepare("SELECT *
 FROM appointments
 WHERE patient_id = :patient_id
 ORDER BY appointment_datetime
-";
+");
 
-$stmt = $db->prepare($sql);
-
-$stmt->execute([
+$request->execute([
     ':patient_id' => $id
 ]);
 
-$appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+$appointments = $request->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<?php require_once "../_partials/_header.php" ?>
 
+<?php require_once "../_partials/_header.php" ?>
 <div class="flex flex-col gap-8 items-start">
 
     <?php if ($success) { ?>
@@ -38,7 +34,6 @@ $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php } ?>
 
     <h1 class="text1-ysabeau">Le profil du patient</h1>
-
     <p><strong>Nom : </strong><?= $patient['lastname'] ?></p>
     <p><strong>Prénom : </strong><?= $patient['firstname'] ?></p>
     <p><strong>Date de naissance : </strong><?= $patient['birthdate'] ?></p>
@@ -68,6 +63,5 @@ $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <a href="./liste-patient.php"><i class="fa-solid fa-arrow-left"></i>
         Retour</a>
 </button>
-
 
 <?php require_once "../_partials/_footer.php" ?>
