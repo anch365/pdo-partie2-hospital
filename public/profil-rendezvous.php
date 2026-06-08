@@ -59,7 +59,7 @@ if (!$appointment) {
 
 <div class="flex flex-col gap-8 items-start">
 
-    <h1 class="text1-ysabeau ">Détails d'un rendez-vous</h1>
+    <h1 class="font-bold text-4xl">Détails d'un rendez-vous</h1>
 
     <p><strong>Nom : </strong><?= $appointment['lastname'] ?></p>
     <p><strong>Prenom : </strong><?= $appointment['firstname'] ?></p>
@@ -69,7 +69,11 @@ if (!$appointment) {
     <a href="./modifier-rendezvous.php?id=<?= $appointment['id'] ?>">Modifier</a>
 </button>
 <button class="rounded-full bg-bleue-bouton px-16 text-2xl" type="submit">
-    <a href="./liste-rendezvous.php"><- Liste des rendez-vous</a>
+
+    <a href="./liste-rendezvous.php">
+    <i class="fa-solid fa-arrow-left"></i>
+        Retour
+    </a>
 </button>
 
 <?php require_once "../_partials/_footer.php" ?>

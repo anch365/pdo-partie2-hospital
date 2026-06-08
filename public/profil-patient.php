@@ -10,6 +10,21 @@ $request = $db->prepare("SELECT * FROM patients WHERE id = ?");
 $request->execute([$id]);
 $patient = $request->fetch(PDO::FETCH_ASSOC);
 
+$sql = "
+SELECT *
+FROM appointments
+WHERE patient_id = :patient_id
+ORDER BY appointment_datetime
+";
+
+$stmt = $db->prepare($sql);
+
+$stmt->execute([
+    ':patient_id' => $id
+]);
+
+$appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <?php require_once "../_partials/_header.php" ?>
@@ -30,11 +45,29 @@ $patient = $request->fetch(PDO::FETCH_ASSOC);
     <p><strong>N° Téléphone : </strong><?= $patient['phone'] ?></p>
     <p><strong>Email : </strong><?= $patient['mail'] ?></p>
 </div>
+
 <button class="rounded-full bg-bleue-bouton px-16 text-2xl" type="submit">
     <a href="./modifier-patient.php?id=<?= $patient['id'] ?>">Modifier</a>
 </button>
+
+<h2 class="text1-ysabeau">Les rendez-vous du patient</h2>
+
+<?php if (empty($appointments)) { ?>
+
+    <p>Aucun rendez-vous enregistré.</p>
+
+<?php } else ?>
+<ul>
+    <?php foreach ($appointments as $appointment) { ?>
+        <li>
+            <?= $appointment['appointment_datetime'] ?>
+        </li>
+    <?php } ?>
+</ul>
 <button class="rounded-full bg-bleue-bouton px-16 text-2xl" type="submit">
-    <a href="./liste-patient.php">Liste des patients</a>
+    <a href="./liste-patient.php"><i class="fa-solid fa-arrow-left"></i>
+        Retour</a>
 </button>
+
 
 <?php require_once "../_partials/_footer.php" ?>
