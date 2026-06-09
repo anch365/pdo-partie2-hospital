@@ -57,7 +57,7 @@ if ($search !== '') {
     $request->execute();
 } else {
 
-    // Récupérer uniquement les patients de la page courante
+    // Récupérer le patient dans n'importe quelle page
     $request = $db->prepare("SELECT *
         FROM patients
         ORDER BY lastname ASC
@@ -71,7 +71,6 @@ if ($search !== '') {
 }
 
 $patients = $request->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 
 <?php require_once "../_partials/_header.php"; ?>
