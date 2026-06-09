@@ -50,10 +50,12 @@ $patients = $request->fetchAll(PDO::FETCH_ASSOC);
                                     <i class="fa-solid fa-pen"></i>
                                 </a>
 
-                                <a href="">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </a>
-
+                                <form action="../process/delete-patient.php" method="POST">
+                                    <input type="hidden" name="id" value="<?= $patient['id'] ?>">
+                                    <button type="submit" onclick="return confirm('Voulez-vous supprimer ce patient')">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </form>
                             </div>
                         </td>
                     </tr>

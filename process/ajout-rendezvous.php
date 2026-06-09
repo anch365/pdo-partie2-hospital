@@ -95,5 +95,4 @@ $request->execute([
 // ETAPE 3 : REDIRIGER SUR UNE PAGE D'AFFICHAGE
 header("Location: ../public/liste-rendezvous.php");
 exit();
-
 ?>

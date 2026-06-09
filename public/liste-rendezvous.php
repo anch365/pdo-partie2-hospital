@@ -75,7 +75,5 @@ $appointments = $request->fetchAll(PDO::FETCH_ASSOC);
     <button type="submit" class="rounded-xl bg-bleue-bouton px-16 text-2xl">
         <a href="./ajout-rendezvous.php">Créer un rendez-vous</a>
     </button>
-
-
 </main>
 <?php require_once "../_partials/_footer.php" ?>

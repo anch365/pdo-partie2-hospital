@@ -3,19 +3,19 @@
 
 // Première étape de sécurité : verifier la méthode
 if ($_SERVER['REQUEST_METHOD'] !== "POST") {
-  header("Location: ../process/ajout-patient.php?error=bad-method");
+  header("Location: ../public/ajout-patient.php?error=bad-method");
   exit();
 }
 
 // Deuxieme étape de sécurité : verifier que la colonne voulue existe bien
 if (!isset($_POST["lastname"]) || !isset($_POST["firstname"]) || !isset($_POST["birthdate"]) || !isset($_POST["phone"]) || !isset($_POST["mail"])) {
-  header("Location: ../process/ajout-patient.php?error=missing-value");
+  header("Location: ../public/ajout-patient.php?error=missing-value");
   exit();
 }
 
 // Troisième étape de sécurité : verifier que la colonne voulue n'est pas vide
 if (empty($_POST["lastname"]) || empty($_POST["firstname"]) || empty($_POST["birthdate"]) || empty($_POST["phone"]) || empty($_POST["mail"])) {
-  header("Location: ../process/ajout-patient.php?error=empty-value");
+  header("Location: ../public/ajout-patient.php?error=empty-value");
   exit();
 }
 
@@ -25,7 +25,7 @@ $dateNaissance = trim($_POST["birthdate"]);
 $date = DateTime::createFromFormat('Y-m-d', $dateNaissance);
 
 if (!$date || $date->format('Y-m-d') !== $dateNaissance) {
-    header("Location: ../process/ajout-patient.php?error=invalid-date");
+    header("Location: ../public/ajout-patient.php?error=invalid-date");
     exit();
 }
 
@@ -34,7 +34,7 @@ $date = DateTime::createFromFormat('Y-m-d', $dateNaissance);
 $today = new DateTime();
 
 if ($date > $today) {
-    header("Location: ../process/ajout-patient.php?error=future-date");
+    header("Location: ../public/ajout-patient.php?error=future-date");
     exit();
 }
 
