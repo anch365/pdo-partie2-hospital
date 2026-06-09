@@ -55,13 +55,16 @@ $appointments = $request->fetchAll(PDO::FETCH_ASSOC);
 <ul>
     <?php foreach ($appointments as $appointment) { ?>
         <li>
+            <h3 class="text-xl font-bold">Date & Heure :</h3>
             <?= $appointment['appointment_datetime'] ?>
         </li>
     <?php } ?>
 </ul>
 <button class="rounded-full bg-bleue-bouton px-16 text-2xl" type="submit">
-    <a href="./liste-patient.php"><i class="fa-solid fa-arrow-left"></i>
-        Retour</a>
+    <a href="./liste-patient.php">
+        <i class="fa-solid fa-arrow-left"></i>
+        Retour
+    </a>
 </button>
 
 <?php require_once "../_partials/_footer.php" ?>

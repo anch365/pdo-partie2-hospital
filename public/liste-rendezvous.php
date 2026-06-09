@@ -24,7 +24,7 @@ $appointments = $request->fetchAll(PDO::FETCH_ASSOC);
 <main class="flex flex-col gap-8 items-center">
     <h1 class="text-ysabeau font-bold">La liste des rendez-vous</h1>
 
-    <div class="w-full overflow-x-auto">
+    <div class="flex flex-col items-center w-full overflow-x-auto">
         <table class="border border-black">
             <thead>
                 <tr>
@@ -32,8 +32,6 @@ $appointments = $request->fetchAll(PDO::FETCH_ASSOC);
                     <th class="border border-black p-2">Prenom</th>
                     <th class="border border-black p-2">Date & Heure</th>
                     <th class="border border-black p-2">Actions</th>
-
-
                 </tr>
             </thead>
             <tbody>

@@ -1,6 +1,5 @@
 <?php
 
-require_once '../utils/db_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: ../public/liste-rendezvous.php');
@@ -17,6 +16,8 @@ if (empty($_POST['id'])) {
 }
 
 $id = (int) $_POST['id'];
+
+require_once '../utils/db_connect.php';
 
 $request = $db->prepare("DELETE FROM appointments WHERE id = :id");
 
