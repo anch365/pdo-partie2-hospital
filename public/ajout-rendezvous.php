@@ -9,11 +9,11 @@ $patients = $request->fetchAll(PDO::FETCH_ASSOC);
 
 <?php require_once "../_partials/_header.php"; ?>
 
+<main class="lg:px-105">
 <form action="../process/ajout-rendezvous.php" method="POST" class="flex flex-col gap-8">
     <input type="hidden" name="appointment.id">
 
     <label for="patient_id" class="font-bold">Patient :</label>
-
     <select
         name="patient_id"
         id="patient_id"
@@ -37,5 +37,5 @@ $patients = $request->fetchAll(PDO::FETCH_ASSOC);
 
     <button type="submit" class="rounded-xl bg-bleue-bouton px-16 text-2xl">Confirmez</button>
 </form>
-
+</main>
 <?php require_once "../_partials/_footer.php" ?>

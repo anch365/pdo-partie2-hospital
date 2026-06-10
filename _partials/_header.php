@@ -20,7 +20,7 @@
 
 </head>
 
-<body class="max-h-screen flex flex-col gap-8 pt-32 px-8 text-ysabeau">
+<body class="max-h-screen flex flex-col gap-8 pt-32 px-8 text-ysabeau md:px-24">
 
     <header class="flex flex-row fixed top-0 right-0 left-0 bg-bleue justify-between px-8">
 
