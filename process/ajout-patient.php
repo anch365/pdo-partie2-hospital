@@ -19,7 +19,7 @@ if (empty($_POST["lastname"]) || empty($_POST["firstname"]) || empty($_POST["bir
   exit();
 }
 
-// POUR LA SECURITE DES DATES
+// Pour la date de naissance
 $dateNaissance = trim($_POST["birthdate"]);
 
 $date = DateTime::createFromFormat('Y-m-d', $dateNaissance);

@@ -20,7 +20,7 @@
 
 </head>
 
-<body class="flex flex-col gap-8 pt-32 px-8 text-ysabeau">
+<body class="max-h-screen flex flex-col gap-8 pt-32 px-8 text-ysabeau">
 
     <header class="flex flex-row fixed top-0 right-0 left-0 bg-bleue justify-between px-8">
 
@@ -36,18 +36,19 @@
         <!-- Fenêtre du menu mobile -->
         <div
             id="fenetre"
-            class="hidden fixed top-16 right-5 bottom-1/2 w-2/3 bg-bleue text-white text-2xl flex-col justify-center px-8 items-start gap-4 rounded-xl">
+            class="hidden fixed top-16 right-5 w-2/3 bg-bleue text-white text-2xl flex-col justify-center px-8 items-start gap-4 rounded-xl">
 
             <a href="./index.php">Accueil</a>
             <a href="./ajout-patient.php">Ajouter un patient</a>
             <a href="./liste-patient.php">Liste des patients</a>
             <a href="./ajout-rendezvous.php">Prendre rendez-vous</a>
             <a href="./liste-rendezvous.php">Liste des rendez-vous</a>
+            <a href="./ajout-patient-rendezvous.php">Ajouter un patient & un rendez-vous</a>
 
         </div>
 
         <!-- MENU Desktop -->
-        <nav class="hidden lg:flex lg:flex-row gap-8 items-center">
+        <nav class="hidden lg:flex lg:flex-row gap-8 items-center text-white">
             <a href="./index.php">Accueil</a>
             <a href="./ajout-patient.php">Ajouter un patient</a>
             <a href="./liste-patient.php">Liste des patients</a>
