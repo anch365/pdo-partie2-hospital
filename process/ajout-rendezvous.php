@@ -21,7 +21,8 @@ if ((empty($_POST["patient_id"]) || empty($_POST["appointment_datetime"]))) {
 
 // Quatrième étape de sécurité : on empêche l'utilisation de balise (par exemple script)
 // $appointmentId = trim($_POST["appointment_id"]);
-$patientId = htmlspecialchars(strip_tags(trim($_GET["patient_id"])));
+$patientId = htmlspecialchars(strip_tags(trim($_POST["patient_id"])));
+
 // LA SECURITE POUR LES DATES
 $appointmentDateTime = trim($_POST["appointment_datetime"]);
 
