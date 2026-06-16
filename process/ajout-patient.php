@@ -61,11 +61,11 @@ $request = $db->prepare("INSERT INTO hospitale2n.patients
 VALUES(:lastname, :firstname, :birthdate, :phone, :mail)");
 
 $request->execute([
-   'lastname' => $nom,
-      ':firstname' => $prenom,
-     ':birthdate' => $dateNaissance,
-     ':phone' => $telephone,
-     ':mail' => $email
+    ':lastname' => $nom,
+    ':firstname' => $prenom,
+    ':birthdate' => $dateNaissance,
+    ':phone' => $telephone,
+    ':mail' => $email
 ]);
 
 // ETAPE 3 : REDIRIGER SUR UNE PAGE D'AFFICHAGE
